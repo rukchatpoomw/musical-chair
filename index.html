@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        height: 100vh;
+    }
+
+    h1 {
+        color: white;
+    }
+
+    button {
+        padding: 1rem;
+        border-radius: 6px;
+        background-color: red;
+        border: none;
+        color: white;
+        font-size: bold;
+    }
+
+    button:hover {
+        background-color: blue;
+        /* filter: brightness(1.2); */
+    }
+
+</style>
+<body>
+    <h1>Manual audio </h1>
+    <button id="audio">
+
+    </button>
+    <h1>Random audio </h1>
+
+    <button id="random-audio">
+        Not random
+    </button>
+</body>
+</html>
+
+<script>
+
+    const audio = new Audio("./audio.mp3")
+    let isPlaying = false
+    audio.volume = 0.1
+
+    const audioButton = document.getElementById("audio")
+    audioButton.textContent = "Pause"
+    audioButton.addEventListener('click', (ev) => {
+        if(isPlaying) {
+            isPlaying = false
+            audio.pause()
+            audioButton.textContent = "Play"
+        } else {
+            isPlaying = true
+            audio.play()
+            audioButton.textContent = "Pause"
+        }
+    })
+    function stopRandomly() {
+        console.log('start random stop function');
+       const duration = audio.duration
+       audio.drua
+        console.log(duration);
+       // Generate a random time between 0 and the duration
+       const randomTime = Math.random() * duration
+        console.log(randomTime);
+       
+     }
+
+    let isRandom = false
+
+    const randomButton = document.getElementById("random-audio")
+    randomButton.addEventListener('click',() => {
+        
+        if(isRandom) {
+            randomButton.textContent = "Not random"
+            isRandom = false
+        } else {
+            randomButton.textContent = "Random"
+            isRandom = true
+            audio.play()
+            stopRandomly()
+        }
+
+    })
+
+    
+
+    function random() {
+        
+        
+    }
+
+</script>
